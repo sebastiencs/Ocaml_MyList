@@ -1,0 +1,6 @@
+http://localhost:8082 {
+  tls off
+  proxy / https://feeds.citibikenyc.com {
+    header_downstream +Access-Control-Allow-Origin *
+  }
+}

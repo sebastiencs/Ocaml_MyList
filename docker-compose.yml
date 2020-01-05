@@ -1,0 +1,17 @@
+version: "3.6"
+services:
+  proxy:
+    image: abiosoft/caddy
+    container_name: proxy
+    restart: always
+    ports:
+      - '8082:8082'
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+  app:
+    container_name: movatic-app-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
